@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- https://github.com/gustavoguanabara/javascript -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>APRENDENDO JS</title>
+
+    <style>
+        body {
+            background-color:#486860;
+            color: white;
+            font: normal 14pt Arial;
+        }
+        h1 {
+            color:#DEBEC3;
+        }
+        p{
+            color:#DEBEC3;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Olá, mundo!</h1>
+    <p>Aprendendo JavaScript</p>
+
+    <script>
+        /*  
+            converção de string > número:
+            1.Number.parseInt(o que você quiser converter) - se quiser converter para números interiros
+
+            2.Number.parseFloat(o que você quiser converter) - se quiser converter para números reais
+
+            Number(o que você quiser converter) - é mais prático, ele se "vira", ele sabe se é inteiro ou real e faz a converção para o tipo definido, mas as vezes e necessário utilizar as de cima
+        */
+        var num1 = Number(window.prompt('Digite um número = ')) 
+        // se eles recebem um valor do prompt eles recebem um valor string. Ou seja, tem que converter de string para número
+        var num2 = Number(window.prompt('Digite outro número = '))
+        // se eles recebem um valor do prompt eles recebem um valor string. Ou seja, tem que converter de string para número
+
+        var soma = num1 + num2
+        window.alert('A soma dos números é ' + soma)
+        // number + number(para adição)
+        // string + string(para concatenação)
+
+        /*  
+            converção de número > string:
+            1. String(o que você quiser converter)
+
+            2. o que você quer converter.toString
+        */
+        window.alert('A soma dos valores é ' + String(soma))
+
+        ///////////////////////////////////////////////////////////////////////////////////
+
+        //Podemos fazer o alert de outra forma:
+
+        window.alert(`A soma do valores ${num1} e ${num2} é igual a ${soma}`)
+
+    </script>
+
+</body>
+</html>
