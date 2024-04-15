@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- https://github.com/gustavoguanabara/javascript -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros passos com DOM</title> 
+
+<style>
+    body {
+        background-color:#486860;
+        color: #DEBEC3;
+        font: normal 14pt Arial;
+    }
+</style>
+
+</head>
+<body>
+    <h1>Iniciando estudos de DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar <strong>DOM</strong> em JavaScript.</p>
+    <div id="msg">Clique em mim</div>
+    <br>
+
+    <script>
+        var corpo = window.document.body
+        var p1 = window.document.getElementsByTagName('p')[1] 
+        var d = window.document.querySelector('div#msg') //div representada pela #, e classe representada por um "."
+        d.style.background = "purple"
+/*
+OUTROS EXEMPLOS:
+
+    window.document.write('Olá, Mundo!')
+    document.write("<br>")
+    window.document.write(window.document.characterSet)
+    document.write("<br>")
+    window.document.write(window.navigator.appName)
+    document.write("<br>")
+    window.document.write(window.document.URL)
+----------------------------------------------------------------------- 
+    var p1 = window.document.getElementsByTagName('p')[0]
+    window.document.write('Está escrito assim: ' + p1.innerText)
+    document.write("<br>")
+    var p1 = window.document.getElementsByTagName('p')[1]
+    window.document.write('Está escrito assim: ' + p1.innerHTML)
+    document.write("<br>")
+
+    OBS: innerHTML já vem formatado, diferente do innerText
+-----------------------------------------------------------------------
+    var corpo = window.document.body
+    //criando uma váriavel para o corpo posso mudar a cor de fundo a qualquer momento
+    var p1 = window.document.getElementsByTagName('p')[0]
+       
+    corpo.style.background = 'purple'
+    p1.style.color = '#486860'
+    //indica que o p1 vai mudar para cor que você escolher 
+-----------------------------------------------------------------------
+    var corpo = window.document.body
+    var p1 = window.document.getElementsByTagName('p')[1]  
+    var d = window.document.getElementById('msg')
+    d.style.background = 'purple'
+    d.innerText = 'Estou aguardando...' //usando DOM modificamos o que estava ecrito na div
+-----------------------------------------------------------------------
+    var corpo = window.document.body
+    var p1 = window.document.getElementsByTagName('p')[1]  
+    var d = window.document.getElementsByName('msg')[0]
+    d.innerText = 'Olá'
+
+*/
+    </script>
+
+    
+</body>
+</html>
+
