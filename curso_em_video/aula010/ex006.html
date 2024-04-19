@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <!-- https://github.com/gustavoguanabara/javascript -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos DOM</title>
 
-<style>
-    div#area{
-        font: normal 20pt Arial;
-        background-color:#486860;
-        color: white;
-        width: 200px;
-        height: 200px;
-        line-height: 200px;
-        text-align: center;
-    }
-</style>
+    <style>
+        div#area {
+            font: normal 20pt Arial;
+            background-color: #486860;
+            color: white;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
 
 </head>
+
 <body>
     <div id="area">
         Interaja...
@@ -30,20 +32,21 @@
         a.addEventListener('mouseenter', entrar)
         a.addEventListener('mouseout', sair)
 
-       function clicar() {
+        function clicar() {
             a.innerText = 'CLICOU!'
             a.style.background = 'purple'
-       } 
+        }
 
-       function entrar() {
+        function entrar() {
             a.innerText = 'ENTROU!'
             a.style.background = 'red'
-       } 
+        }
 
-       function sair() {
+        function sair() {
             a.innerText = 'SAIU!'
             a.style.background = 'gray'
-       } 
+        } 
     </script>
 </body>
+
 </html>

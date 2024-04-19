@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- https://github.com/gustavoguanabara/javascript -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Você é brasilero ou estrangeiro?</title>
+</head>
+
+<style>
+    body {
+        background-color: #486860;
+        color: #DEBEC3;
+        font: normal 14pt Arial;
+    }
+
+    input {
+        font: normal 14pt Arial;
+        width: 160px;
+    }
+
+    div#res {
+        margin-top: auto;
+    }
+</style>
+
+<body>
+    <h1>Você é brasilero ou estrangeiro?</h1>
+
+    <p>Digite em qual país você nasceu?</p>
+    <input type="text" name="país" id="país">
+    <input type="button" value="Verificar" onclick="cidadania()" id="button">
+    <div id="resultado">Resultado</div>
+
+    <script>
+
+        function cidadania() {
+            var País = document.querySelector('input#país')//recebe país digitado no input;
+            var resultado = document.querySelector('div#resultado')//recebe a div resultado que o texto irá ser substituído pelo innerHTML;
+            var país = (País.value)
+            if (país != 'Brasil') {
+                resultado.innerHTML = `Você é estranjeiro!`
+            } else {
+                resultado.innerHTML = `Você é brasileiro!`
+            }
+        }
+    </script>
+    </script>
+    </script>
+</body>
+
+</html>
