@@ -7,7 +7,7 @@ function carregar() {
     var hora = data.getHours()
     var minute = data.getMinutes()
 
-    msg.innerHTML = `Agora são ${hora}H `
+    msg.innerHTML = `Agora são ${hora} horas e ${minute} minutos.`
 
     if (hora >= 0 && hora < 12) {
         document.body.style.background = '#81B063'
