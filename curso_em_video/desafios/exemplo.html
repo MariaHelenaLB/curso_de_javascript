@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- https://github.com/gustavoguanabara/javascript -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Distância</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #cacaca;
+            font: normal 14pt Arial;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+            background: #530b6183;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font: normal 12pt Arial;
+        }
+
+        button {
+            width: 150px;
+            height: 56px;
+            font: normal 10pt Arial;
+            background: #cacaca;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversor de Distância</h1>
+        <button onclick="conversor()"><strong>Converter</strong></button>
+        <p id="mensagem">Clique no botão para iniciar</p>
+        <div id="resultado" style="display: none;"></div>
+    </div>
+
+    <script>
+        function conversor() {
+            var distanciaM = parseFloat(window.prompt('Digite a distância em metros (m):'));
+
+            if (!isNaN(distanciaM)) {
+                var resultados = {
+                    'quilômetros (Km)': distanciaM / 1000,
+                    'hectômetros (Hm)': distanciaM / 100,
+                    'decâmetros (Dam)': distanciaM / 10,
+                    'decímetros (dm)': distanciaM * 10,
+                    'centímetros (cm)': distanciaM * 100,
+                    'milímetros (mm)': distanciaM * 1000
+                };
+
+                var resultadoDiv = document.getElementById('resultado');
+                resultadoDiv.innerHTML = `<h2>A distância de ${distanciaM} metros, corresponde a ...</h2>`;
+
+                for (var unidade in resultados) {
+                    resultadoDiv.innerHTML += `${resultados[unidade]} ${unidade}<br>`;
+                }
+
+                resultadoDiv.style.display = 'block';
+                document.getElementById('mensagem').style.display = 'none';
+            } else {
+                alert('Por favor, digite uma distância válida em metros.');
+            }
+        }
+    </script>
+</body>
+</html>
+
+</body>
+</html>

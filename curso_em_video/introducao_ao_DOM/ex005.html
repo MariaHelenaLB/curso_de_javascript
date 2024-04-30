@@ -21,13 +21,13 @@
     <h1>Iniciando estudos de DOM</h1>
     <p>Aqui vai o resultado</p>
     <p>Aprendendo a usar <strong>DOM</strong> em JavaScript.</p>
-    <div id="msg">Clique em mim</div>
+    <div class="msg">Clique em mim</div>
     <br>
 
     <script>
         var corpo = window.document.body
         var p1 = window.document.getElementsByTagName('p')[1]
-        var d = window.document.querySelector('div#msg') //div representada pela #, e classe representada por um "."
+        var d = window.document.querySelector('div.msg') //div representada pela #, e classe representada por um "."
         d.style.background = "purple"
         /*
         OUTROS EXEMPLOS:

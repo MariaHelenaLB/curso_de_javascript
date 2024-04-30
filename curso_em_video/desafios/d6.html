@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- https://github.com/gustavoguanabara/javascript -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D6</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversor de Temperatura</h1>
+        <button onclick="conversor()"><strong>Converter</strong></button>
+        <p id="mensagem">Clique no botão para iniciar a conversão</p>
+        </div id="res" style="display: none;"></div>
+    </div>
+
+    <script>
+        function conversor() {
+            temperaturaC = parseFloat(window.prompt('Digite a temperatura em °C (Celsius)'));
+
+            if (!isNaN(temperaturaC)) {
+                var res = {
+                    'K (Kelvin)' : temperaturaC + 273.15,
+                    'F (Fahrenheit)' : (temperaturaC * 9/5) + 35,
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- https://github.com/gustavoguanabara/javascript -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3</title>
+
+    <style>
+        body {
+            background-color: #312d2d;
+            font: normal 14pt Arial;
+        }
+
+        h1 {
+            color: #fffafb;
+        }
+
+        button {
+            width: 160px;
+            height: 60px;
+            color: #ffffff;
+            background: #38045c;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Boas-Vindas</h1>
+
+    <button onclick="desafio3()">Mostrar Antecessor e Sucessor</button>
+
+    <script>
+        // Função para obter o número antecessor
+        function antecessor(numero) {
+            return numero - 1;
+        }
+
+        // Função para obter o número sucessor
+        function sucessor(numero) {
+            return numero + 1;
+        }
+
+        // Função principal que solicita o número ao usuário e exibe o antecessor e o sucessor
+        function desafio3() {
+            // Solicitar ao usuário um número inteiro
+            var num = parseFloat(window.prompt('Digite um número inteiro:'));
+
+            // Verificar se o valor inserido é um número válido
+            if (!isNaN(num)) {
+                // Calcular o antecessor e o sucessor
+                var ant = antecessor(num);
+                var suc = sucessor(num);
+
+                // Exibir o antecessor e o sucessor em uma mensagem de confirmação
+                window.confirm(`Antes de ${num} temos o número ${ant}\nDepois de ${num} temos o número ${suc}`);
+            } else {
+                // Se o valor inserido não for um número válido, exibir mensagem de erro
+                window.alert('Por favor, digite um número válido.');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

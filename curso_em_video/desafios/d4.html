@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- https://github.com/gustavoguanabara/javascript -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D4</title>
+</head>
+
+<style>
+    body {
+        background-color: #312d2d;
+        font: normal 14pt Arial;
+    }
+
+    h1 {
+        color: #fffafb;
+    }
+
+    button {
+        width: 160px;
+        height: 60px;
+        color: #ffffff;
+        background: #38045c;
+    }
+</style>
+
+<body>
+    <h1>Calculando o Troco</h1>
+
+    <button onclick="desafio4()">Comprar produto</button>
+
+    <script>
+        function desafio4() {
+
+            var produto = window.prompt('Que produto você está comprando?');
+
+            if (produto !== null && produto !== '') {
+
+                var valorProdudo = parseFloat(window.prompt(`Quanto custa ${produto} que você está comprando?`));
+
+
+                if (!isNaN(valorProdudo) && valorProdudo > 0) {
+                    var valorPago = parseFloat(window.prompt(`Qual foi o valor que você deu para pagar ${produto}`));
+
+                    if (!isNaN(valorPago) && valorPago >= valorProdudo) {
+                        var troco = valorPago - valorProdudo;
+
+                        window.confirm(`Você comprou ${produto} que custou R$${valorProdudo.toFixed(2)}.\nDeu R$${valorPago.toFixed(2)} em dinheiro e vai resceber R$${troco.toFixed(2)}.\nVolte sempre!`)
+                    } else {
+                        window.alert('Digite um valor suficiente para que consiga comprar o produto desejado!')
+                    }
+                } else {
+                    window.alert('Digite um preço válido!')
+                }
+            } else {
+                window.alert('Digite o nome do produto')
+            }
+        }
+    </script>
+
+</body>
+
+</html>
