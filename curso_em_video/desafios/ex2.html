@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificador de Variação de Preço</title>
+    <title>ex2</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,11 +44,14 @@
             var variacaoPorcentagem = (diferenca / valorAnterior) * 100;
 
             var maisBaratoOuCaro = diferenca > 0 ? "mais caro" : "mais barato";
+            var aumentoOuReducao = diferenca > 0 ? "aumentou" : "reduziu";
 
-            var mensagem = `O produto custava R$ ${(valorAnterior.toFixed(2)).replace('.', ',')}, e agora custa R$ ${(valorAtual.toFixed(2)).replace('.', ',')}.\n`;
-            mensagem += `Hoje o produto está ${maisBaratoOuCaro}.\n`;
+            var mensagem = `Valor Anterior: R$ ${(valorAnterior.toFixed(2)).replace('.', ',')}\n`;
+            mensagem += `Valor Atual: R$ ${(valorAtual.toFixed(2)).replace('.', ',')}\n`;
+            mensagem += `O produto está ${maisBaratoOuCaro} agora.\n`;
             mensagem += `Diferença de Preço: R$ ${(Math.abs(diferenca).toFixed(2)).replace('.', ',')}\n`;
             mensagem += `Variação em Porcentagem: ${(variacaoPorcentagem.toFixed(2)).replace('.', ',')}%\n`;
+            mensagem += `O preço ${aumentoOuReducao} em R$ ${(Math.abs(diferenca).toFixed(2)).replace('.', ',')}\n`;
 
             document.getElementById("output").textContent = mensagem;
         }
@@ -56,3 +59,4 @@
 </body>
 
 </html>
+

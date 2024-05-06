@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- https://github.com/gustavoguanabara/javascript -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D9</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #007f1e;
+            font: normal 14pt Arial;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+            background: #46a33f;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        button {
+            width: 150px;
+            height: 56px;
+            font: normal 10pt Arial;
+            background: #c1c1c1c5;
+        }
+
+        #output {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Reajuste Salarial</h1>
+        <button onclick="calcularReajuste()"><strong>Reajustar Salário</strong></button>
+        <p id="mensagem">Clique no botão para iniciar</p>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function calcularReajuste() {
+            var nome = prompt("Qual é o nome do funcionário?");
+
+            if (!nome) {
+                alert("Informe o nome do funcionário!");
+                return;
+            }
+
+            var salarioStr = prompt(`Qual é o salário de ${nome}?`);
+            // Substituir vírgula por ponto apenas se a vírgula for usada como separador decimal
+            if (salarioStr.indexOf(',') !== -1) {
+                salarioStr = salarioStr.replace(',', '.');
+            }
+            var salario = parseFloat(salarioStr);
+
+            if (isNaN(salario) || salario <= 0) {
+                alert("Informe um salário válido!");
+                return;
+            }
+
+            var porcentagemStr = prompt("Qual é a porcentagem de aumento salarial?");
+            var porcentagem = parseFloat(porcentagemStr);
+            if (isNaN(porcentagem) || porcentagem < 0) {
+                alert("Por favor, informe uma porcentagem válida.");
+                return;
+            }
+
+            var aumento = salario * (porcentagem / 100);
+            var novoSalario = salario + aumento;
+
+            var output = document.getElementById('output');
+            output.innerHTML = 
+            `<h2>${nome} recebeu um aumento salarial!</h2>` +
+            `<p>O salário atual era de ${salario.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}.</p>` +
+            `<p>Com um aumento de ${porcentagem}%, o salário vai aumentar ${aumento.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>` +
+            `<p>E a partir daí, ${nome} vai passar a ganhar ${novoSalario.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}.</p>`;
+        }
+    </script>
+
+</body>
+
+</html>

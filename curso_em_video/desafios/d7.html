@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- https://github.com/gustavoguanabara/javascript -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D7</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #74e37a;
+        font: normal 14pt Arial;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgb(0, 0, 0);
+        background: #305c32e7;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    #resultado {
+        margin-top: 20px;
+        font: normal 12pt Arial;
+    }
+
+    button {
+        width: 150px;
+        height: 56px;
+        font: normal 10pt Arial;
+        background: #c1c1c1c5;
+    }
+
+    #output {
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+    <h1>Conversor de R$ &rarr; US$</h1>
+
+    <div class="container">
+        <button onclick="conversor()"><strong>CONVERTER</strong></button>
+        <p id="mensagem">Clique no botão para iniciar a conversão.</p>
+    </div>
+    <div id="output"></div>
+    <script>
+        var cotacao = window.prompt('Antes de mais nada. Quanto está a cotação do dólar agora?');
+
+        if (cotacao === null || cotacao === "") {
+            window.alert('Você precisa informar a cotação em dólar!');
+        } else {
+            function conversor() {
+                var reaisStr = window.prompt('Quantos R$ você tem na carteira?');
+                // Verifica se há vírgula na string e substitui por ponto, se necessário
+                if (reaisStr.indexOf(',') !== -1) {
+                    reaisStr = reaisStr.replace(',', '.');
+                }
+                // Converte a string para número
+                var reais = parseFloat(reaisStr);
+
+                if (isNaN(reais) || reais <= 0) {
+                    window.alert('Insira um número válido!');
+                } else {
+                    var dolar = reais / parseFloat(cotacao);
+
+                    var output = document.getElementById('output');
+                    output.innerHTML = `<p>Pagando R$${reais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}, você consegue US$${dolar.toLocaleString('en-US', { minimumFractionDigits: 2 })}.</p>`;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

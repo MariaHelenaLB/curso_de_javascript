@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- https://github.com/gustavoguanabara/javascript -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D12</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #c499c8;
+        font: normal 14pt Arial;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgb(0, 0, 0);
+        background: #5e5e5e;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    button {
+        width: 150px;
+        height: 56px;
+        font: normal 10pt Arial;
+        background: #ef36a5;
+    }
+
+    #output {
+        margin-top: 10px;
+        text-align: left;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Preço Mudou</h1>
+        <button onclick="verificarPreco()"><strong>Verificar</strong></button>
+        <p id="mensagem"><strong>Clique no botão acima para analisar a mudança de preço.</strong></p>
+        <div id="res" style="display: none;"></div>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function verificarPreco() {
+            var valorAnterior = parseFloat(prompt('Qual era o valor anterior do produto?').replace(',', '.'));
+            var valorAtual = parseFloat(prompt('Qual é o valor atual do produto?').replace(',', '.'));
+
+            if (isNaN(valorAnterior) || isNaN(valorAtual)) {
+                alert('Insira um valor válido!');
+                return;
+            }
+
+            var diferente = valorAtual - valorAnterior;
+            var porcentagem = (diferente / valorAnterior) * 100;
+
+            var baratoOuCaro = diferente > 0 ? 'mais caro' : 'mais barato';
+            var subiuOuCaiu = diferente > 0 ? 'subiu' : 'caiu';
+            
+            var mensagem = `<h2>Analisando os valores informados</h2>`;
+             mensagem += `<p>O produto custava R$ ${(valorAnterior.toFixed(2)).replace('.', ',')}, e agora custa R$ ${(valorAtual.toFixed(2)).replace('.', ',')}</p>`;
+            mensagem += `<p>Hoje o produto está ${baratoOuCaro}</p>`;
+            mensagem += `<p>O preço ${subiuOuCaiu} R$  ${(Math.abs(diferente).toFixed(2)).replace('.', ',')}</p>`;
+            mensagem += `<p>Uma variação de ${(porcentagem.toFixed(2)).replace('.', ',')}%</p>`;
+
+            document.getElementById("output").innerHTML = mensagem;
+        }
+    </script>
+</body>
+
+</html>

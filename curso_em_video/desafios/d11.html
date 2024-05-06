@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- https://github.com/gustavoguanabara/javascript -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D11</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #5a0861;
+        font: normal 14pt Arial;
+        text-align: center;
+    }
+
+    .red-highlight {
+        background-color: rgba(255, 0, 0, 0.788);
+        color: #b90303;
+    }
+
+    .green-highlight {
+        background-color: #02cd02c5;
+        color: #078607;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgb(0, 0, 0);
+        background: #fcfbfe;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    button {
+        width: 150px;
+        height: 56px;
+        font: normal 10pt Arial;
+        background: #ff4901;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Ano Bissexto</h1>
+        <button onclick="verificarBissexto()"><strong>Verificar</strong></button>
+        <p id="mensagem"><strong>Informe um ano para saber se ele é bissexto.</strong></p>
+        <div id="res" style="display: block;"></div>
+        <div id="output"></div>
+    </div>
+
+    <script>
+
+        function anoBissexto(anob) {
+            return (anob % 4 === 0 && anob % 100 !== 0) || (anob % 400 === 0);
+            /*
+                year % 4 === 0: Esta parte verifica se o ano é divisível por 4, o que é um critério fundamental para ser bissexto. Se o resto da divisão de year por 4 for zero, então é divisível por 4.
+
+                year % 100 !== 0: Aqui, estamos verificando se o ano não é divisível por 100. Isso é necessário porque, embora a maioria dos anos divisíveis por 4 sejam bissextos, há uma exceção para os anos divisíveis por 100. Eles só são bissextos se também forem divisíveis por 400. Portanto, estamos garantindo que anos divisíveis por 100 não sejam considerados bissextos a menos que sejam divisíveis por 400.
+
+                (year % 400 === 0): Esta é a segunda condição para anos divisíveis por 100. Se o ano for divisível por 400, então ele é bissexto, independentemente de ser divisível por 100 ou não.
+
+                A expressão || (ou) conecta as duas condições. Se qualquer uma das condições for verdadeira, o ano é considerado bissexto e a função retorna verdadeiro. Se ambas as condições forem falsas, o ano não é bissexto e a função retorna falso.
+            */
+        }
+
+        function verificarBissexto() {
+            var anoInput = window.prompt('Qual é o ano que você quer verificar?');
+            var ano = parseInt(anoInput);
+            output = "";
+
+            if (isNaN(ano)) {
+                output = 'Insira um ano válido.';
+            } else {
+                var bissexto = anoBissexto(ano);
+                if (bissexto) {
+                    output = `O ano de ${ano} <strong><mark class="green-highlight">É BISSEXTO</mark style ></strong> ✅.`
+                } else {
+                    output = `O ano de ${ano} <strong><mark class="red-highlight">NÃO É BISSEXTO</mark></strong> ❌.`
+                }
+            }
+
+            document.getElementById('res').innerHTML = output;
+            `<h2>Analisando o ano de ${ano}...</h2>`;
+        }
+    </script>
+</body>
+
+</html>

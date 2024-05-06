@@ -4,13 +4,14 @@
     <!-- https://github.com/gustavoguanabara/javascript -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversor de Distância</title>
+    <title>D5</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             background: #cacaca;
             font: normal 14pt Arial;
+            text-align: center;
         }
 
         .container {
@@ -45,7 +46,7 @@
         <h1>Conversor de Distância</h1>
         <button onclick="conversor()"><strong>Converter</strong></button>
         <p id="mensagem">Clique no botão para iniciar</p>
-        <div id="resultado" style="display: none;"></div>
+        <div id="res" style="display: none;"></div>
     </div>
 
     <script>
@@ -62,7 +63,7 @@
                     'milímetros (mm)': distanciaM * 1000
                 };
 
-                var resultadoDiv = document.getElementById('resultado');
+                var resultadoDiv = document.getElementById('res');
                 resultadoDiv.innerHTML = `<h2>A distância de ${distanciaM} metros, corresponde a ...</h2>`;
 
                 for (var unidade in resultados) {

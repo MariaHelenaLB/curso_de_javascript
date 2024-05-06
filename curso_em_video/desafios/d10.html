@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- https://github.com/gustavoguanabara/javascript -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D10</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #6583fc;
+            font: normal 14pt Arial;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+            background: #fcfbfe;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        button {
+            width: 150px;
+            height: 56px;
+            font: normal 10pt Arial;
+            background: #012bff;
+        }
+
+        #output {
+            margin-top: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+ 
+<body>
+
+    <div class="container">
+        <h1>Resolvendo Bhaskara</h1>
+        <button onclick="resolverBhaskara()"><strong>Calcular</strong></button>
+        <p id="mensagem"><strong>Considerando uma equação no formato ax<sup>2</sup> + bx + c = 0, aperte o botão acima para calcular o valor de &Delta;</strong></p>
+        <div id="resultado" style="display: none;"></div>
+        <div id="output"></div>
+    </div>
+
+
+
+    <script>
+        function resolverBhaskara() {
+            var a = parseFloat(window.prompt('Qual o valor de A?'));
+            var b = parseFloat(window.prompt('Qual o valor de B?'));
+            var c = parseFloat(window.prompt('Qual o valor de C?'));
+
+            var delta = Math.pow(b, 2) - 4 * a * c;
+
+            if (delta < 0) {
+                window.alert('A equação não possui números reais.');
+            } else {
+                var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+
+                var equacao = `A equação atual é <strong>${a}x<sup>2</sup> + ${b}x + ${c}</strong>`;
+                var calculo = `O cálculo realizado será <strong>\u0394 = ${b}<sup>2</sup> - 4 * ${a} * ${c}</strong>`;
+                var deltaR = `O valor calculado foi <strong><mark>\u0394 = ${delta}</mark></strong>`;
+                var raizR = `Raízes da equação: <strong>x<sup>1</sup> = ${x1}, x<sup>2</sup> = ${x2}</strong>`;
+
+                var output = document.getElementById('output');
+                output.innerHTML = `<p>${equacao}</p> <p>${calculo}</p> <p>${deltaR}</p> <p>${raizR}</p>`;
+                output.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

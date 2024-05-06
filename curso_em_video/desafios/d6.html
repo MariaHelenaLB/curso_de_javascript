@@ -1,30 +1,89 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <!-- https://github.com/gustavoguanabara/javascript -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D6</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #6fb4d1;
+            font: normal 14pt Arial;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+            background: #0f288a;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font: normal 12pt Arial;
+        }
+
+        button {
+            width: 150px;
+            height: 56px;
+            font: normal 10pt Arial;
+            background: #5368bd;
+        }
+
+        #output {
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
+
+    
     <div class="container">
-        <h1>Conversor de Temperatura</h1>
-        <button onclick="conversor()"><strong>Converter</strong></button>
-        <p id="mensagem">Clique no botão para iniciar a conversão</p>
-        </div id="res" style="display: none;"></div>
+        <h1>Conversor de Temperaturas</h1>
+        <button onclick="converterTemperatura()"><strong>CONVERTER</strong></button>
+        <p id="mensagem">Clique no botão para iniciar</p>
     </div>
 
-    <script>
-        function conversor() {
-            temperaturaC = parseFloat(window.prompt('Digite a temperatura em °C (Celsius)'));
+    <div id="output"></div>
 
-            if (!isNaN(temperaturaC)) {
-                var res = {
-                    'K (Kelvin)' : temperaturaC + 273.15,
-                    'F (Fahrenheit)' : (temperaturaC * 9/5) + 35,
-                }
+    <script>
+        function converterTemperatura() {
+            var temperaturaCelsius = prompt("Digite a temperatura em graus Celsius (°C):");
+
+            if (temperaturaCelsius === null || temperaturaCelsius === "") {
+                alert("Você precisa digitar uma temperatura.");
+                return;
             }
+
+            var celsius = parseFloat(temperaturaCelsius);
+
+            if (isNaN(celsius)) {
+                alert("Por favor, insira um valor numérico válido.");
+                return;
+            }
+
+            var kelvin = celsius + 273.15;
+            var fahrenheit = (celsius * 9 / 5) + 32;
+
+            var resultadoDiv = document.getElementById('output');
+            resultadoDiv.innerHTML = `<h2>A temperatura de ${celsius.toFixed(2)}°C, corresponde a...</h2>` +
+                `<p>${kelvin.toFixed(2)}°K (Kelvin).</p>` +
+                `<p>${fahrenheit.toFixed(2)}°F (Fahrenheit).</p>`;
         }
     </script>
+
 </body>
+
 </html>
