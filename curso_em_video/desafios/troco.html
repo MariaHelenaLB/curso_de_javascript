@@ -12,6 +12,7 @@
     body {
         background-color: #312d2d;
         font: normal 14pt Arial;
+        text-align: center;
     }
 
     h1 {
@@ -38,16 +39,17 @@
 
             if (produto !== null && produto !== '') {
 
-                var valorProdudo = parseFloat(window.prompt(`Quanto custa ${produto} que você está comprando?`));
+                var valorProduto = window.prompt(`Quanto custa ${produto} que você está comprando?`);
+                valorProduto = parseFloat(valorProduto.replace(',', '.'));
 
+                if (!isNaN(valorProduto) && valorProduto > 0) {
+                    var valorPago = window.prompt(`Qual foi o valor que você deu para pagar ${produto}`);
+                    valorPago = parseFloat(valorPago.replace(',', '.'));
 
-                if (!isNaN(valorProdudo) && valorProdudo > 0) {
-                    var valorPago = parseFloat(window.prompt(`Qual foi o valor que você deu para pagar ${produto}`));
+                    if (!isNaN(valorPago) && valorPago >= valorProduto) {
+                        var troco = valorPago - valorProduto;
 
-                    if (!isNaN(valorPago) && valorPago >= valorProdudo) {
-                        var troco = valorPago - valorProdudo;
-
-                        window.confirm(`Você comprou ${produto} que custou R$${valorProdudo.toFixed(2)}.\nDeu R$${valorPago.toFixed(2)} em dinheiro e vai resceber R$${troco.toFixed(2)}.\nVolte sempre!`)
+                        window.confirm(`Você comprou ${produto} que custou R$${valorProduto.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}.\nDeu R$${valorPago.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} em dinheiro e vai receber R$${troco.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}.\nVolte sempre!`)
                     } else {
                         window.alert('Digite um valor suficiente para que consiga comprar o produto desejado!')
                     }

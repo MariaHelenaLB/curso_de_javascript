@@ -14,7 +14,7 @@
             font: normal 14pt Arial;
             text-align: center;
         }
-    
+
         .container {
             max-width: 600px;
             margin: 20px auto;
@@ -24,18 +24,18 @@
             box-shadow: 0 0 10px rgb(0, 0, 0);
             background: #a33f8a;
         }
-    
+
         h1 {
             text-align: center;
         }
-    
+
         button {
             width: 150px;
             height: 56px;
             font: normal 10pt Arial;
             background: #c1c1c1c5;
         }
-    
+
         #output {
             margin-top: 10px;
         }
@@ -79,9 +79,9 @@
             var precoComDesconto = preco - desconto;
 
             var output = document.getElementById('output');
-            output.innerHTML = 
-            `<h2>Calculando desconto de 10% para ${produto}</h2>` +
-            `<p>O preço original era de ${preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}.<br>Você acaba de ganhar ${desconto.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} de desconto (-10%).<br>No fim, você vai pagar ${precoComDesconto.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} no produto ${produto}.</p>`;
+            output.innerHTML =
+                `<h2>Calculando desconto de 10% para ${produto}</h2>` +
+                `<p>O preço original era de ${preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}.<br>Você acaba de ganhar ${desconto.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} de desconto (-10%).<br>No fim, você vai pagar ${precoComDesconto.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} no produto ${produto}.</p>`;
         }
     </script>
 

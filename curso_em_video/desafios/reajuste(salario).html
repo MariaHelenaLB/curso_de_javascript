@@ -83,11 +83,11 @@
             var novoSalario = salario + aumento;
 
             var output = document.getElementById('output');
-            output.innerHTML = 
-            `<h2>${nome} recebeu um aumento salarial!</h2>` +
-            `<p>O salário atual era de ${salario.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}.</p>` +
-            `<p>Com um aumento de ${porcentagem}%, o salário vai aumentar ${aumento.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>` +
-            `<p>E a partir daí, ${nome} vai passar a ganhar ${novoSalario.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}.</p>`;
+            output.innerHTML =
+                `<h2>${nome} recebeu um aumento salarial!</h2>` +
+                `<p>O salário atual era de ${salario.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}.</p>` +
+                `<p>Com um aumento de ${porcentagem}%, o salário vai aumentar ${aumento.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>` +
+                `<p>E a partir daí, ${nome} vai passar a ganhar ${novoSalario.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}.</p>`;
         }
     </script>
 

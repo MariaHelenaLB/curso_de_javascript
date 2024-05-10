@@ -40,7 +40,7 @@
 
     #output {
         margin-top: 10px;
-        text-align: left;
+        text-align: center;
     }
 </style>
 
@@ -68,13 +68,15 @@
 
             var baratoOuCaro = diferente > 0 ? 'mais caro' : 'mais barato';
             var subiuOuCaiu = diferente > 0 ? 'subiu' : 'caiu';
-            
-            var mensagem = `<h2>Analisando os valores informados</h2>`;
-             mensagem += `<p>O produto custava R$ ${(valorAnterior.toFixed(2)).replace('.', ',')}, e agora custa R$ ${(valorAtual.toFixed(2)).replace('.', ',')}</p>`;
-            mensagem += `<p>Hoje o produto está ${baratoOuCaro}</p>`;
-            mensagem += `<p>O preço ${subiuOuCaiu} R$  ${(Math.abs(diferente).toFixed(2)).replace('.', ',')}</p>`;
-            mensagem += `<p>Uma variação de ${(porcentagem.toFixed(2)).replace('.', ',')}%</p>`;
+            var baixoOucima = diferente > 0 ? 'para cima' : 'para baixo';
 
+            var mensagem = `<h2>Analisando os valores informados</h2>`;
+            mensagem += `<p>O produto custava R$ ${(valorAnterior.toFixed(2)).replace('.', ',')}, e agora custa R$ ${(valorAtual.toFixed(2)).replace('.', ',')}.</p>`;
+            mensagem += `<p>Hoje o produto está ${baratoOuCaro}.</p>`;
+            mensagem += `<p>O preço ${subiuOuCaiu} R$ ${(Math.abs(diferente).toFixed(2)).replace('.', ',')} em relação ao preço enterior.</p>`;
+            mensagem += `<p>Uma variação de ${(porcentagem.toFixed(2)).replace('.', ',')}% ${baixoOucima}.</p>`;
+
+            document.getElementById("mensagem").style.display = "none";
             document.getElementById("output").innerHTML = mensagem;
         }
     </script>

@@ -49,7 +49,7 @@
 
 <body>
 
-    
+
     <div class="container">
         <h1>Conversor de Temperaturas</h1>
         <button onclick="converterTemperatura()"><strong>CONVERTER</strong></button>
@@ -60,17 +60,17 @@
 
     <script>
         function converterTemperatura() {
-            var temperaturaCelsius = prompt("Digite a temperatura em graus Celsius (°C):");
+            var temperaturaCelsius = prompt('Digite a temperatura em graus Celsius (°C):');
 
-            if (temperaturaCelsius === null || temperaturaCelsius === "") {
-                alert("Você precisa digitar uma temperatura.");
+            if (temperaturaCelsius === null || temperaturaCelsius === '') {
+                alert('Você precisa digitar uma temperatura.');
                 return;
             }
 
             var celsius = parseFloat(temperaturaCelsius);
 
             if (isNaN(celsius)) {
-                alert("Por favor, insira um valor numérico válido.");
+                alert('Por favor, insira um valor numérico válido.');
                 return;
             }
 

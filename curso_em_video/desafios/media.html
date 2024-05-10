@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- https://github.com/gustavoguanabara/javascript -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D13</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #2a2b3ccd;
+            font: normal 14pt Arial;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+            background: #e1e1e1b6;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        button {
+            width: 150px;
+            height: 56px;
+            font: normal 10pt Arial;
+            background: #808080c5;
+        }
+
+        #output {
+            margin-top: 10px;
+        }
+
+        .nota1 {
+            background-color: #02cd02c5;
+            color: #017101;
+        }
+
+        .nota2 {
+            background: #f87a13;
+            color: #cf5d00;
+        }
+
+        .nota3 {
+            background-color: #dd2222;
+            color: #980000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Verificador de Nota</h1>
+        <button onclick="verificarNota()">Entrar com as notas</button>
+        <p id="mensagem" style="display: none;"><strong>Clique no botão para informar as notas do aluno(a)</strong></p>
+        <div id="res" style="display: none;"></div>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function verificarNota() {
+            var nome = prompt('Qual é o nome do aluno?');
+            if (!nome) {
+                alert('Informe o nome do aluno!');
+                return;
+            }
+
+            var output = document.getElementById('output');
+            output.innerHTML = '';
+
+            output.innerHTML += `<h2><strong>Analisando a situação de ${nome}</strong></h2>`;
+
+            var nota1 = parseFloat(prompt(`${nome}, informe sua primeira nota:`));
+
+            var nota2 = parseFloat(prompt(`${nome}, informe sua segunda nota:`));
+
+            var nota3 = parseFloat(prompt(`${nome}, informe sua terceira nota:`));
+
+            if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
+                alert('Insira um valor válido!');
+                return;
+            }
+
+            var media = (nota1 + nota2 + nota3) / 3;
+
+            output.innerHTML += `<p>Com as notas ${nota1}, ${nota2} e ${nota3}, a <strong>média é ${media.toFixed(2)}</strong>.</p>`;
+
+            if (media >= 6) {
+                output.innerHTML += `<p>O aluno(a) está <strong><mark class="nota1">APROVADO</mark></strong>!</p>`;
+            } else if (media >= 4 && media < 6) {
+                output.innerHTML += `<p>O aluno(a) está de <strong><mark class="nota2">RECUPERAÇÃO</mark></strong>!</p>`;
+            } else {
+                output.innerHTML += `<p>O aluno(a) está de <strong><mark class="nota3">REPROVADO</mark></strong>!</p>`;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
